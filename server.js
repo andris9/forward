@@ -60,10 +60,14 @@ const forward = async (id, from, to, message) => {
         message
     ]);
 
-    await transporter.sendMail({
-        envelope: { from, to: [to.target] },
-        raw: message
-    });
+    try {
+        await transporter.sendMail({
+            envelope: { from, to: [to.target] },
+            raw: message
+        });
+    } catch (err) {
+        console.log(err);
+    }
 };
 
 /**
@@ -115,8 +119,10 @@ const server = new SMTPServer({
     key: config.mx.tls.key,
     cert: config.mx.tls.cert,
 
+    name: config.mx.servername,
+
     // not required but nice-to-have
-    banner: 'Welcome to forwarder',
+    banner: 'Welcome to forwarder service',
 
     // disable STARTTLS to allow authentication in clear text mode
     disabledCommands: ['AUTH'],
