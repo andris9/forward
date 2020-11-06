@@ -1,0 +1,29 @@
+{
+    "name": "forward",
+    "private": true,
+    "version": "1.0.0",
+    "description": "example mail forwarder with ARC support",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andris9/forward.git"
+    },
+    "keywords": [],
+    "author": "Andris Reinman",
+    "license": "AGPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/andris9/forward/issues"
+    },
+    "homepage": "https://github.com/andris9/forward#readme",
+    "dependencies": {
+        "mailauth": "1.0.8",
+        "mx-connect": "^1.2.0",
+        "nodemailer": "^6.4.14",
+        "smtp-server": "3.7.0",
+        "wild-config": "^1.5.1"
+    }
+}

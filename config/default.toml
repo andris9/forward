@@ -1,0 +1,21 @@
+
+[mx]
+    port = 2525
+    host = "0.0.0.0"
+    servername = false # defaults to os.hostname
+
+    [mx.tls]
+        key = "config/tls-key.pem"
+        cert = "config/tls-cert.pem"
+
+# virtual alias map
+[[addresses]]
+    # address in this server
+    address = "andris@example.com"
+    # addresses to forward to, can be an empty array
+    targets = ["andris@ethereal.email"]
+
+[arc]
+    signingDomain = "example.com"
+    selector = "dummy"
+    privateKey = "config/arc-key.pem"
