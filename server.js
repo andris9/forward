@@ -38,7 +38,12 @@ const forward = async (id, from, to, message) => {
 
     console.log(`[${id}] Sending mail to ${to.target}`);
 
-    let connection = await mxConnect(to.target);
+    let connection = await mxConnect({
+        target: to.target,
+        localAddress: config.mx.localAddress,
+        localHostname: config.mx.servername
+    });
+
     if (!connection?.socket) {
         console.error(`[${id}] Failed to get connection to MX of ${to}`);
         return;
@@ -49,7 +54,6 @@ const forward = async (id, from, to, message) => {
         port: connection.port,
 
         name: config.mx.servername,
-        localAddress: config.mx.localAddress,
 
         auth: false,
         debug: true,
