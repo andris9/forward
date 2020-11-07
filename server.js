@@ -48,6 +48,9 @@ const forward = async (id, from, to, message) => {
         host: connection.hostname,
         port: connection.port,
 
+        name: config.mx.servername,
+        localAddress: config.mx.localAddress,
+
         auth: false,
         debug: true,
         logger: true,
